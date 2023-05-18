@@ -3,6 +3,7 @@ package com.effectiveem.app.views.register;
 import com.effectiveem.app.data.entity.SamplePerson;
 import com.effectiveem.app.data.service.SamplePersonService;
 import com.effectiveem.app.views.MainLayout;
+import com.effectiveem.app.views.helloworld.HelloWorldView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -37,6 +38,7 @@ public class RegisterView extends Div {
     private TextField occupation = new TextField("Occupation");
 
     private Button cancel = new Button("Cancel");
+    private Button clear = new Button("Clear");
     private Button save = new Button("Save");
 
     private Binder<SamplePerson> binder = new Binder<>(SamplePerson.class);
@@ -51,12 +53,24 @@ public class RegisterView extends Div {
         binder.bindInstanceFields(this);
         clearForm();
 
-        cancel.addClickListener(e -> clearForm());
+        // NOTE: simeshev - Added clear form button
+        clear.addClickListener(e -> clearForm());
+
+        // NOTE: simeshev - Added cancel button
+        cancel.addClickListener(e -> routeToHome());
+
         save.addClickListener(e -> {
             personService.update(binder.getBean());
             Notification.show(binder.getBean().getClass().getSimpleName() + " details stored.");
             clearForm();
         });
+    }
+
+    /**
+     * Routes to the "home", hello world in this case.
+     */
+    private void routeToHome() {
+        getUI().ifPresent(ui -> ui.navigate(HelloWorldView.class));
     }
 
     private void clearForm() {
@@ -79,6 +93,7 @@ public class RegisterView extends Div {
         buttonLayout.addClassName("button-layout");
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         buttonLayout.add(save);
+        buttonLayout.add(clear);
         buttonLayout.add(cancel);
         return buttonLayout;
     }
