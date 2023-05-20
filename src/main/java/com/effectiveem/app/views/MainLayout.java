@@ -14,6 +14,7 @@ import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Header;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.ListItem;
 import com.vaadin.flow.component.html.Nav;
 import com.vaadin.flow.component.html.Span;
@@ -95,6 +96,10 @@ public class MainLayout extends AppLayout {
 
         Div layout = new Div();
         layout.addClassNames(Display.FLEX, AlignItems.CENTER, Padding.Horizontal.LARGE);
+
+        // Add logo
+        final Image image = new Image("images/effective-engineering-manager-150x150-rev-1.jpg", "Effective EM Logo");
+        layout.add(image);
 
         H1 appName = new H1("Effective EM");
         appName.addClassNames(Margin.Vertical.MEDIUM, Margin.End.AUTO, FontSize.LARGE);
