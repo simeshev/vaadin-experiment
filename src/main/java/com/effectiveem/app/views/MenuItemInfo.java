@@ -16,12 +16,12 @@ public final class MenuItemInfo extends ListItem {
    public MenuItemInfo(String menuTitle, Component icon, Class<? extends Component> view) {
 
       this.view = view;
-      RouterLink link = new RouterLink();
+      RouterLink routerLink = new RouterLink();
       // Use Lumo classnames for various styling
-      link.addClassNames(LumoUtility.Display.FLEX, LumoUtility.Gap.XSMALL,
+      routerLink.addClassNames(LumoUtility.Display.FLEX, LumoUtility.Gap.XSMALL,
               LumoUtility.Height.MEDIUM, LumoUtility.AlignItems.CENTER,
               LumoUtility.Padding.Horizontal.SMALL, LumoUtility.TextColor.BODY);
-      link.setRoute(view);
+      routerLink.setRoute(view);
 
       Span menuTitleSpan = new Span(menuTitle);
 
@@ -29,10 +29,10 @@ public final class MenuItemInfo extends ListItem {
       menuTitleSpan.addClassNames(LumoUtility.FontWeight.MEDIUM, LumoUtility.FontSize.MEDIUM, LumoUtility.Whitespace.NOWRAP);
 
       if (icon != null) {
-         link.add(icon);
+         routerLink.add(icon);
       }
-      link.add(menuTitleSpan);
-      add(link);
+      routerLink.add(menuTitleSpan);
+      add(routerLink);
    }
 
    public Class<?> getView() {
