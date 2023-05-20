@@ -1,4 +1,21 @@
+header {
+  background: #02075d;
+}
+
+header h1 {
+  color: white;
+}
+
+header vaadin-menu-bar {
+  color: white;
+}
+
+header vaadin-menu-bar-button {
+  color: white;
+}
+
 header nav a:any-link {
+  color: white;
   text-decoration: none;
   padding: 0 var(--lumo-space-s);
   border-radius: var(--lumo-border-radius-m);
