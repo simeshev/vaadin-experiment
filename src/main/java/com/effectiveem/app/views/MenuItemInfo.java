@@ -23,15 +23,15 @@ public final class MenuItemInfo extends ListItem {
               LumoUtility.Padding.Horizontal.SMALL, LumoUtility.TextColor.BODY);
       routerLink.setRoute(view);
 
-      Span menuTitleSpan = new Span(menuTitle);
-
-      // Use Lumo classnames for various styling
-      menuTitleSpan.addClassNames(LumoUtility.FontWeight.MEDIUM, LumoUtility.FontSize.MEDIUM, LumoUtility.Whitespace.NOWRAP);
-
       if (icon != null) {
          routerLink.add(icon);
       }
+
+      // Use Lumo classnames for various styling
+      Span menuTitleSpan = new Span(menuTitle);
+      menuTitleSpan.addClassNames(LumoUtility.FontWeight.MEDIUM, LumoUtility.FontSize.MEDIUM, LumoUtility.Whitespace.NOWRAP);
       routerLink.add(menuTitleSpan);
+
       add(routerLink);
    }
 
